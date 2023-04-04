@@ -117,7 +117,7 @@ const FormSubmission = ({handleSubmission} : any) => {
                     </div>
                     {formData.rules.map((item, index)=>{
                         return (
-                            <div className='flex w-full mt-6'>
+                            <div key={index} className='flex w-full mt-6'>
                                 <RuleComponent key={index} handleDeleteRule={handleDeleteRule} handleRuleChange={handleRuleChange} index={index} ref={ruleComponentRef} />
                             </div>
                         )
