@@ -1,7 +1,6 @@
 import React, { forwardRef, useImperativeHandle, useRef, useState } from 'react'
 import {GrAddCircle} from 'react-icons/gr'
 import {AiOutlineClose, AiOutlineMinusCircle} from 'react-icons/ai'
-import { v4 as uuidv4 } from 'uuid';
 
 const RuleComponent = forwardRef(function RuleComponent({handleDeleteRule, handleRuleChange , index} : any, ref) {
     const [selectedFieldOption, setSelectedFieldOption] = useState('');
@@ -110,15 +109,15 @@ const RuleComponent = forwardRef(function RuleComponent({handleDeleteRule, handl
                         </div>
                         <div className='flex flex-col items-center gap-2 w-full'>
                             {parameters.map((parameter, index) => (
-                                <div key={index+uuidv4()} className='flex items-center justify-center gap-2'>
+                                <div key={index} className='flex items-center justify-center gap-2'>
                                     <input
                                         type='text'
                                         value={parameter.parameter}
-                                        key={index+uuidv4()}
                                         onChange={(event) => handleChangeParameter(event, index)}
                                         className='placeholder-black block w-full p-2 text-black border bg-white rounded-md sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
                                         placeholder='Enter Parameter'
                                     />
+                                    {/* @ts-ignore */}
                                      {index > 0 ? (
                                         <AiOutlineMinusCircle className='w-5 h-5' onClick={() => handleDeleteParameter(index)} />
                                     ): (
