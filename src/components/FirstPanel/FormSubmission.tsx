@@ -36,6 +36,7 @@ const FormSubmission = ({handleSubmission} : any) => {
     };
       
     const handleReset = () =>{
+        setWord(0)
         setFormData({
             name: '',
             description: '',
